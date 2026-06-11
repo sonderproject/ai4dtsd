@@ -11,6 +11,7 @@ import logoSonder from "@/assets/images/logo-sonder.png";
 
 const HERO_CHIPS = [
   "Free Entry",
+  "Free AI Audit",
   "Networking",
   "Live AI Demos",
   "Vendor Showcase",
@@ -19,12 +20,12 @@ const HERO_CHIPS = [
 
 const TICKER = [
   "Practical AI",
+  "Free AI Audit",
   "Networking",
   "Live Demos",
   "Local Case Studies",
   "Vendor Showcase",
   "Expert Panels",
-  "Food & Drinks",
 ];
 
 const LEARN_ITEMS = [
@@ -51,6 +52,16 @@ const LEARN_ITEMS = [
 ];
 
 const EXPECT_ITEMS = [
+  {
+    title: "Get a free 15-minute AI Audit",
+    body: "Sit down with an expert to find one automation opportunity in your business. No pitch — just a quick, practical win you can take home.",
+    icon: (
+      <>
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3M8.5 11l2 2 3.5-3.5" />
+      </>
+    ),
+  },
   {
     title: "Network with Downtown's decision makers",
     body: "Meet owners, operators, and executives from across Downtown San Diego.",
@@ -92,6 +103,32 @@ const EXPECT_ITEMS = [
     body: "Bites and drinks while you connect — come hungry and curious.",
     icon: (
       <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
+    ),
+  },
+];
+
+const PERKS = [
+  {
+    tag: "Founding member",
+    title: "The Downtown Business Collective",
+    body: "This isn't a one-off. It's the launch of an ongoing community for Downtown SD businesses — built to connect, share, and grow together. Show up, and you're in as a founding member.",
+    icon: (
+      <>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </>
+    ),
+  },
+  {
+    tag: "Exclusive for attendees",
+    title: "The Downtown SD AI Report — 2026",
+    body: "A simple, data-backed look at how Downtown SD businesses are actually using AI right now. Released at the event — free for everyone in the room.",
+    icon: (
+      <>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6M9 13h6M9 17h6M9 9h1" />
+      </>
     ),
   },
 ];
@@ -178,9 +215,14 @@ export default function Home() {
             Networking · Innovation · Growth
           </p>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg text-slate-200 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl font-heading text-2xl font-semibold text-white sm:text-3xl">
+            Meet your neighbors. Grow your business.
+          </p>
+
+          <p className="mx-auto mt-4 max-w-xl text-lg text-slate-200 sm:text-xl">
             Practical AI for your business — plus the people building it in San
-            Diego.
+            Diego. The first event bringing Downtown SD&apos;s business
+            community into one room.
           </p>
 
           {/* highlight chips */}
@@ -409,6 +451,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ──────────────── More than one night ──────────────── */}
+      <section className="relative overflow-hidden bg-surface-alt px-6 py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute -right-24 top-1/4 -z-0 h-72 w-72 rounded-full bg-fuchsia-300/20 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-5xl">
+          <Reveal>
+            <SectionHeading
+              eyebrow="This is just the beginning"
+              title={
+                <>
+                  More than one night — you&apos;re a{" "}
+                  <span className="text-gradient">founding member</span>
+                </>
+              }
+              centered
+            />
+          </Reveal>
+          <Reveal delay={60}>
+            <p className="mx-auto mt-5 max-w-2xl text-center text-slate-600">
+              Show up, and you get more than an evening. You get in at the
+              ground floor of what we&apos;re building in Downtown SD.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {PERKS.map((perk, i) => (
+              <Reveal key={perk.title} delay={i * 80}>
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-surface-card p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500" />
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 shadow-md transition-transform group-hover:scale-110">
+                      <svg
+                        className="h-6 w-6 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        {perk.icon}
+                      </svg>
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+                      {perk.tag}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-navy">
+                    {perk.title}
+                  </h3>
+                  <p className="mt-2 text-slate-600">{perk.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─────────────────── Photo CTA band ─────────────────── */}
       <section className="relative isolate px-6 py-24 sm:py-28">
         <Image
@@ -566,7 +669,8 @@ export default function Home() {
               </h2>
               <p className="mx-auto mt-4 max-w-md text-slate-600">
                 Date &amp; venue announced soon. Sign up to be notified first —
-                space is limited.
+                space is limited. Reserve now to lock in your founding-member
+                spot and your copy of the Downtown SD AI Report.
               </p>
             </div>
           </Reveal>
