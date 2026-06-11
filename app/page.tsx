@@ -10,11 +10,11 @@ import logoWonOfUs from "@/assets/images/logo-wonofus.png";
 import logoSonder from "@/assets/images/logo-sonder.png";
 
 const HERO_CHIPS = [
-  "Free Admission",
+  "Free Entry",
   "Networking",
   "Live AI Demos",
   "Vendor Showcase",
-  "Food & Drinks",
+  "Memberships & Packages",
 ];
 
 const TICKER = [
@@ -110,6 +110,7 @@ const HOSTS = [
     name: "Downtown San Diego Partnership",
     blurb:
       "The leading voice for a vibrant, prosperous Downtown and the businesses that power it.",
+    offer: "Ask about Partnership memberships",
     logo: logoDowntown,
     logoClass: "h-12 w-auto object-contain",
   },
@@ -117,6 +118,7 @@ const HOSTS = [
     name: "Won of Us",
     blurb:
       "Connecting people and ideas to spark innovation across the local community.",
+    offer: "Innovation programs & partnerships",
     logo: logoWonOfUs,
     logoClass: "h-7 w-auto object-contain",
   },
@@ -124,6 +126,7 @@ const HOSTS = [
     name: "Sonder Project",
     blurb:
       "An AI research and web development company helping businesses put AI to work.",
+    offer: "AI implementation packages",
     logo: logoSonder,
     logoClass: "h-12 w-auto object-contain",
   },
@@ -315,10 +318,10 @@ export default function Home() {
                 {/* floating badge */}
                 <div className="absolute -bottom-5 -right-3 rotate-[-4deg] rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 px-5 py-3 text-center shadow-xl sm:-right-5">
                   <p className="font-heading text-lg font-bold leading-none text-white">
-                    100% Free
+                    Free Entry
                   </p>
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-white/90">
-                    Entry · Food · Demos
+                    Reserve your seat
                   </p>
                 </div>
               </div>
@@ -427,12 +430,13 @@ export default function Home() {
         </div>
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-semibold text-white sm:text-5xl">
-            It&apos;s <span className="text-gradient-warm">free</span> — but
-            seats are limited.
+            Come for the ideas. Leave with a{" "}
+            <span className="text-gradient-warm">partner</span>.
           </h2>
           <p className="mt-4 text-lg text-slate-200">
-            Downtown&apos;s business community is coming together for this one.
-            Claim your spot before it fills.
+            Free to attend, with limited seats. Meet the companies offering
+            memberships, packages, and hands-on help to put AI to work in your
+            business.
           </p>
           <a
             href="#signup"
@@ -470,6 +474,13 @@ export default function Home() {
               centered
             />
           </Reveal>
+          <Reveal delay={60}>
+            <p className="mx-auto mt-5 max-w-2xl text-center text-slate-600">
+              Meet the teams behind the event — and explore the memberships,
+              packages, and partnerships that can help you put AI to work in
+              your business.
+            </p>
+          </Reveal>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {HOSTS.map((host, i) => (
@@ -488,6 +499,21 @@ export default function Home() {
                     {host.name}
                   </h3>
                   <p className="mt-2 text-sm text-slate-600">{host.blurb}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/5 px-3 py-1 text-xs font-semibold text-accent">
+                    <svg
+                      className="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                    {host.offer}
+                  </span>
                 </div>
               </Reveal>
             ))}
