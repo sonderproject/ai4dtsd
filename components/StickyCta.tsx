@@ -37,7 +37,7 @@ export default function StickyCta() {
     >
       <a
         href="#signup"
-        className="block rounded-lg bg-accent px-6 py-3 text-center text-base font-bold text-white"
+        className="btn-glow w-full rounded-xl px-6 py-3.5 text-center text-base"
       >
         Reserve Your Spot — Free
       </a>

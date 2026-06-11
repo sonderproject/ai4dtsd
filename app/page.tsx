@@ -9,6 +9,24 @@ import logoDowntown from "@/assets/images/logo-downtown.png";
 import logoWonOfUs from "@/assets/images/logo-wonofus.png";
 import logoSonder from "@/assets/images/logo-sonder.png";
 
+const HERO_CHIPS = [
+  "Free Admission",
+  "Networking",
+  "Live AI Demos",
+  "Vendor Showcase",
+  "Food & Drinks",
+];
+
+const TICKER = [
+  "Practical AI",
+  "Networking",
+  "Live Demos",
+  "Local Case Studies",
+  "Vendor Showcase",
+  "Expert Panels",
+  "Food & Drinks",
+];
+
 const LEARN_ITEMS = [
   {
     title: "Get hours back every week",
@@ -115,7 +133,7 @@ export default function Home() {
   return (
     <main className="relative overflow-x-hidden">
       {/* ───────────────────────── Hero ───────────────────────── */}
-      <section className="relative isolate flex min-h-[88vh] items-center px-6 py-20 sm:py-28">
+      <section className="relative isolate flex min-h-screen items-center px-6 py-24 sm:py-28">
         <Image
           src={skylineSunset}
           alt="Downtown San Diego skyline at sunset over the harbor"
@@ -123,29 +141,35 @@ export default function Home() {
           priority
           placeholder="blur"
           sizes="100vw"
-          className="-z-20 object-cover"
+          className="-z-30 object-cover"
         />
-        {/* navy gradient overlay for text legibility */}
+        {/* deep gradient wash for legibility + mood */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-20"
           style={{
             background:
-              "linear-gradient(180deg, rgba(7,19,32,0.78) 0%, rgba(7,19,32,0.62) 45%, rgba(7,19,32,0.85) 100%)",
+              "linear-gradient(180deg, rgba(7,19,32,0.82) 0%, rgba(7,19,32,0.55) 40%, rgba(7,19,32,0.9) 100%)",
           }}
         />
+        {/* floating color orbs */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="animate-floaty absolute -left-20 top-10 h-72 w-72 rounded-full bg-cyan-400/30 blur-3xl" />
+          <div className="animate-floaty-slow absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-fuchsia-500/25 blur-3xl" />
+          <div className="animate-floaty absolute right-1/3 top-1/4 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
+        </div>
 
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-accent-bright/40 bg-accent-bright/10 px-4 py-1.5 text-sm font-semibold text-accent-bright backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-bright" />
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-md">
+            <span className="animate-pulsedot h-2 w-2 rounded-full bg-cyan-300" />
             Free Event · Downtown San Diego
           </span>
 
-          <h1 className="mt-6 font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-6xl md:text-7xl">
-            AI for Downtown Business
+          <h1 className="mt-7 font-heading text-5xl font-semibold leading-[0.98] text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.4)] sm:text-7xl md:text-[5.5rem]">
+            AI for <span className="text-gradient">Downtown</span> Business
           </h1>
-          <p className="mt-4 font-heading text-xl font-medium text-accent-bright sm:text-2xl">
-            Networking, Innovation &amp; Growth
+          <p className="mt-5 font-heading text-xl font-semibold uppercase tracking-[0.18em] text-gradient-warm sm:text-2xl">
+            Networking · Innovation · Growth
           </p>
 
           <p className="mx-auto mt-6 max-w-xl text-lg text-slate-200 sm:text-xl">
@@ -153,14 +177,51 @@ export default function Home() {
             Diego.
           </p>
 
-          <div className="mt-9 flex flex-col items-center gap-4">
+          {/* highlight chips */}
+          <div className="mt-8 flex flex-wrap justify-center gap-2.5">
+            {HERO_CHIPS.map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-sm font-medium text-white backdrop-blur-md"
+              >
+                <svg
+                  className="h-3.5 w-3.5 text-cyan-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                {chip}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center gap-4">
             <a
               href="#signup"
-              className="inline-flex items-center justify-center rounded-xl bg-accent-bright px-8 py-4 text-base font-bold text-navy-deep shadow-xl shadow-black/30 transition hover:bg-white sm:text-lg"
+              className="btn-glow rounded-2xl px-9 py-4 text-base sm:text-lg"
             >
               Reserve Your Spot — Free
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
             </a>
-            <p className="text-sm font-medium text-slate-300">
+            <p className="flex items-center gap-2 text-sm font-medium text-slate-300">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
               Free to attend · Seats are limited
             </p>
           </div>
@@ -171,13 +232,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ───────────────── Scrolling keyword ticker ───────────────── */}
+      <div className="overflow-hidden border-y border-white/10 bg-navy-deep py-4">
+        <div className="animate-marquee flex w-max items-center gap-8 whitespace-nowrap">
+          {[...TICKER, ...TICKER].map((word, i) => (
+            <span key={i} className="flex items-center gap-8">
+              <span className="font-heading text-xl font-semibold text-white/90 sm:text-2xl">
+                {word}
+              </span>
+              <span className="text-gradient text-2xl font-bold">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ──────────────────── What You'll Learn ──────────────────── */}
-      <section className="px-6 py-20 sm:py-24">
+      <section className="dot-grid relative px-6 py-20 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <SectionHeading
               eyebrow="What you'll walk away with"
-              title="Real takeaways you can put to work Monday morning"
+              title={
+                <>
+                  Real takeaways you can use{" "}
+                  <span className="text-gradient">Monday morning</span>
+                </>
+              }
             />
           </Reveal>
 
@@ -188,12 +268,18 @@ export default function Home() {
                 delay={i * 60}
                 className={i === LEARN_ITEMS.length - 1 ? "sm:col-span-2" : ""}
               >
-                <div className="flex h-full gap-4 rounded-2xl border border-slate-200 bg-surface-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-md">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/10 font-heading text-base font-semibold text-accent">
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-surface-card p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_20px_50px_-20px_rgba(56,189,248,0.55)]">
+                  {/* gradient hover wash */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-50 to-indigo-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  {/* oversized ghost number */}
+                  <span className="pointer-events-none absolute -right-2 -top-6 font-heading text-8xl font-bold text-slate-100 transition-colors duration-300 group-hover:text-cyan-100">
                     {i + 1}
                   </span>
-                  <div>
-                    <h3 className="font-heading text-lg font-semibold text-navy">
+                  <div className="relative">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 font-heading text-base font-bold text-white shadow-md">
+                      {i + 1}
+                    </span>
+                    <h3 className="mt-4 font-heading text-xl font-semibold text-navy">
                       {item.title}
                     </h3>
                     <p className="mt-1.5 text-slate-600">{item.body}</p>
@@ -206,18 +292,35 @@ export default function Home() {
       </section>
 
       {/* ───────────────────── What to Expect ───────────────────── */}
-      <section className="bg-surface-alt px-6 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-surface-alt px-6 py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute -left-24 top-1/3 -z-0 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
-              <div className="overflow-hidden rounded-3xl shadow-lg">
-                <Image
-                  src={downtownStreet}
-                  alt="Downtown San Diego street and skyline in daylight"
-                  placeholder="blur"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="h-full w-full object-cover"
-                />
+              <div className="relative">
+                {/* gradient frame */}
+                <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-cyan-400 via-blue-500 to-fuchsia-500 opacity-70 blur-lg" />
+                <div className="overflow-hidden rounded-3xl shadow-2xl">
+                  <Image
+                    src={downtownStreet}
+                    alt="Downtown San Diego street and skyline in daylight"
+                    placeholder="blur"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                {/* floating badge */}
+                <div className="absolute -bottom-5 -right-3 rotate-[-4deg] rounded-2xl bg-gradient-to-br from-amber-400 to-rose-500 px-5 py-3 text-center shadow-xl sm:-right-5">
+                  <p className="font-heading text-lg font-bold leading-none text-white">
+                    100% Free
+                  </p>
+                  <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-white/90">
+                    Entry · Food · Demos
+                  </p>
+                </div>
               </div>
             </Reveal>
 
@@ -225,17 +328,23 @@ export default function Home() {
               <Reveal>
                 <SectionHeading
                   eyebrow="What to expect"
-                  title="An evening built for connection, ideas, and real tools"
+                  title={
+                    <>
+                      An evening built for{" "}
+                      <span className="text-gradient">connection</span> &amp;
+                      ideas
+                    </>
+                  }
                 />
               </Reveal>
 
               <div className="mt-8 space-y-4">
                 {EXPECT_ITEMS.map((item, i) => (
                   <Reveal key={item.title} delay={i * 60}>
-                    <div className="flex gap-4 rounded-2xl border border-slate-200 bg-surface-card p-5 shadow-sm">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10">
+                    <div className="group flex gap-4 rounded-2xl border border-slate-200 bg-surface-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-500 shadow-md transition-transform group-hover:scale-110">
                         <svg
-                          className="h-5 w-5 text-accent"
+                          className="h-5 w-5 text-white"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -270,7 +379,12 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Who should attend"
-              title="Made for the people who run Downtown"
+              title={
+                <>
+                  Made for the people who{" "}
+                  <span className="text-gradient">run Downtown</span>
+                </>
+              }
               centered
             />
           </Reveal>
@@ -279,7 +393,7 @@ export default function Home() {
               {ATTENDEES.map((chip) => (
                 <span
                   key={chip}
-                  className="rounded-full border border-accent/25 bg-accent/5 px-5 py-2.5 text-sm font-semibold text-navy"
+                  className="cursor-default rounded-full border border-slate-200 bg-surface-card px-5 py-2.5 text-sm font-semibold text-navy shadow-sm transition hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-r hover:from-cyan-500 hover:to-indigo-500 hover:text-white hover:shadow-lg"
                 >
                   {chip}
                 </span>
@@ -297,19 +411,24 @@ export default function Home() {
           fill
           placeholder="blur"
           sizes="100vw"
-          className="-z-20 object-cover"
+          className="-z-30 object-cover"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-20"
           style={{
             background:
-              "linear-gradient(180deg, rgba(7,19,32,0.82) 0%, rgba(7,19,32,0.72) 100%)",
+              "linear-gradient(180deg, rgba(7,19,32,0.88) 0%, rgba(7,19,32,0.74) 100%)",
           }}
         />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="animate-floaty absolute left-1/4 top-0 h-64 w-64 rounded-full bg-cyan-400/25 blur-3xl" />
+          <div className="animate-floaty-slow absolute right-1/4 bottom-0 h-72 w-72 rounded-full bg-fuchsia-500/25 blur-3xl" />
+        </div>
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-semibold text-white sm:text-4xl">
-            It&apos;s free — but seats are limited.
+          <h2 className="font-heading text-3xl font-semibold text-white sm:text-5xl">
+            It&apos;s <span className="text-gradient-warm">free</span> — but
+            seats are limited.
           </h2>
           <p className="mt-4 text-lg text-slate-200">
             Downtown&apos;s business community is coming together for this one.
@@ -317,9 +436,21 @@ export default function Home() {
           </p>
           <a
             href="#signup"
-            className="mt-8 inline-flex items-center justify-center rounded-xl bg-accent-bright px-8 py-4 text-base font-bold text-navy-deep shadow-xl shadow-black/30 transition hover:bg-white sm:text-lg"
+            className="btn-glow mt-8 rounded-2xl px-9 py-4 text-base sm:text-lg"
           >
             Reserve Your Spot — Free
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </a>
         </Reveal>
       </section>
@@ -330,7 +461,12 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Hosted by"
-              title="A partnership rooted in San Diego"
+              title={
+                <>
+                  A partnership rooted in{" "}
+                  <span className="text-gradient">San Diego</span>
+                </>
+              }
               centered
             />
           </Reveal>
@@ -338,7 +474,9 @@ export default function Home() {
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {HOSTS.map((host, i) => (
               <Reveal key={host.name} delay={i * 80}>
-                <div className="flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-surface-card p-8 text-center shadow-sm">
+                <div className="group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-surface-card p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                  {/* top gradient accent */}
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500" />
                   <div className="flex h-20 w-full items-center justify-center rounded-xl bg-navy px-6">
                     <Image
                       src={host.logo}
@@ -358,15 +496,24 @@ export default function Home() {
       </section>
 
       {/* ───────────────────────── Signup ───────────────────────── */}
-      <section id="signup" className="scroll-mt-8 px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-2xl">
+      <section
+        id="signup"
+        className="dot-grid relative scroll-mt-8 px-6 py-20 sm:py-28"
+      >
+        <div className="relative mx-auto max-w-2xl">
+          {/* glow halo behind the form */}
+          <div
+            aria-hidden="true"
+            className="absolute -inset-x-8 top-24 -z-10 h-72 rounded-full bg-gradient-to-r from-cyan-300/30 via-blue-300/30 to-fuchsia-300/30 blur-3xl"
+          />
           <Reveal>
             <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-semibold uppercase tracking-widest text-accent">
                 Reserve your spot
-              </p>
-              <h2 className="mt-3 font-heading text-3xl font-semibold text-navy sm:text-4xl">
-                Save your seat — it&apos;s free
+              </span>
+              <h2 className="mt-4 font-heading text-3xl font-semibold text-navy sm:text-5xl">
+                Save your seat — it&apos;s{" "}
+                <span className="text-gradient">free</span>
               </h2>
               <p className="mx-auto mt-4 max-w-md text-slate-600">
                 Date &amp; venue announced soon. Sign up to be notified first —
@@ -382,10 +529,11 @@ export default function Home() {
       </section>
 
       {/* ───────────────────────── Footer ───────────────────────── */}
-      <footer className="bg-navy-deep px-6 py-14">
+      <footer className="relative bg-navy-deep px-6 py-14">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500" />
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-heading text-2xl font-semibold text-accent-bright">
-            Space is limited.
+          <p className="font-heading text-2xl font-bold sm:text-3xl">
+            <span className="text-gradient-warm">Space is limited.</span>
           </p>
           <p className="mt-4 text-sm font-medium text-slate-300">
             Downtown San Diego Partnership &nbsp;·&nbsp; Won of Us &nbsp;·&nbsp;
@@ -410,7 +558,7 @@ function SectionHeading({
   centered = false,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   centered?: boolean;
 }) {
   return (
@@ -419,8 +567,8 @@ function SectionHeading({
         {eyebrow}
       </p>
       <h2
-        className={`mt-3 font-heading text-3xl font-semibold text-navy sm:text-4xl ${
-          centered ? "mx-auto max-w-2xl" : "max-w-2xl"
+        className={`mt-3 font-heading text-3xl font-semibold leading-tight text-navy sm:text-4xl md:text-5xl ${
+          centered ? "mx-auto max-w-3xl" : "max-w-3xl"
         }`}
       >
         {title}

@@ -194,7 +194,7 @@ export default function SignupForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 w-full rounded-lg bg-accent px-6 py-3.5 text-base font-bold text-white transition hover:bg-accent-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface-card disabled:cursor-not-allowed disabled:opacity-60"
+        className="btn-glow mt-6 w-full rounded-xl px-6 py-4 text-base focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface-card disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Reserving…" : "Reserve Your Spot — Free"}
       </button>
