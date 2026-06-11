@@ -5,6 +5,9 @@ import StickyCta from "@/components/StickyCta";
 import skylineSunset from "@/assets/images/skyline-sunset.jpg";
 import skylineBay from "@/assets/images/skyline-bay.jpg";
 import downtownStreet from "@/assets/images/downtown-street.jpg";
+import logoDowntown from "@/assets/images/logo-downtown.png";
+import logoWonOfUs from "@/assets/images/logo-wonofus.png";
+import logoSonder from "@/assets/images/logo-sonder.png";
 
 const LEARN_ITEMS = [
   {
@@ -89,16 +92,22 @@ const HOSTS = [
     name: "Downtown San Diego Partnership",
     blurb:
       "The leading voice for a vibrant, prosperous Downtown and the businesses that power it.",
+    logo: logoDowntown,
+    logoClass: "h-12 w-auto object-contain",
   },
   {
     name: "Won of Us",
     blurb:
       "Connecting people and ideas to spark innovation across the local community.",
+    logo: logoWonOfUs,
+    logoClass: "h-7 w-auto object-contain",
   },
   {
     name: "Sonder Project",
     blurb:
       "Helping businesses and communities grow through practical, people-first innovation.",
+    logo: logoSonder,
+    logoClass: "h-12 w-auto object-contain",
   },
 ];
 
@@ -330,9 +339,12 @@ export default function Home() {
             {HOSTS.map((host, i) => (
               <Reveal key={host.name} delay={i * 80}>
                 <div className="flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-surface-card p-8 text-center shadow-sm">
-                  {/* Logo placeholder */}
-                  <div className="flex h-20 w-full items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 text-xs uppercase tracking-wider text-slate-400">
-                    Logo
+                  <div className="flex h-20 w-full items-center justify-center rounded-xl bg-navy px-6">
+                    <Image
+                      src={host.logo}
+                      alt={`${host.name} logo`}
+                      className={host.logoClass}
+                    />
                   </div>
                   <h3 className="mt-5 font-heading text-lg font-semibold text-navy">
                     {host.name}
