@@ -105,7 +105,7 @@ const HOSTS = [
   {
     name: "Sonder Project",
     blurb:
-      "Helping businesses and communities grow through practical, people-first innovation.",
+      "An AI research and web development company helping businesses put AI to work.",
     logo: logoSonder,
     logoClass: "h-12 w-auto object-contain",
   },
