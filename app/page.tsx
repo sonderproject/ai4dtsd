@@ -111,6 +111,7 @@ const HOSTS = [
     blurb:
       "The leading voice for a vibrant, prosperous Downtown and the businesses that power it.",
     offer: "Ask about Partnership memberships",
+    url: "https://downtownsandiego.org/",
     logo: logoDowntown,
     logoClass: "h-12 w-auto object-contain",
   },
@@ -119,6 +120,7 @@ const HOSTS = [
     blurb:
       "Connecting people and ideas to spark innovation across the local community.",
     offer: "Innovation programs & partnerships",
+    url: "https://www.wonofuslimited.com/",
     logo: logoWonOfUs,
     logoClass: "h-7 w-auto object-contain",
   },
@@ -127,6 +129,7 @@ const HOSTS = [
     blurb:
       "An AI research and web development company helping businesses put AI to work.",
     offer: "AI implementation packages",
+    url: "https://www.sonderproject.co",
     logo: logoSonder,
     logoClass: "h-12 w-auto object-contain",
   },
@@ -485,7 +488,12 @@ export default function Home() {
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {HOSTS.map((host, i) => (
               <Reveal key={host.name} delay={i * 80}>
-                <div className="group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-surface-card p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <a
+                  href={host.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex h-full flex-col items-center overflow-hidden rounded-2xl border border-slate-200 bg-surface-card p-8 text-center shadow-sm transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
                   {/* top gradient accent */}
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-fuchsia-500" />
                   <div className="flex h-20 w-full items-center justify-center rounded-xl bg-navy px-6">
@@ -514,7 +522,22 @@ export default function Home() {
                     </svg>
                     {host.offer}
                   </span>
-                </div>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-navy transition-colors group-hover:text-accent">
+                    Visit website
+                    <svg
+                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
+                  </span>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -562,8 +585,32 @@ export default function Home() {
             <span className="text-gradient-warm">Space is limited.</span>
           </p>
           <p className="mt-4 text-sm font-medium text-slate-300">
-            Downtown San Diego Partnership &nbsp;·&nbsp; Won of Us &nbsp;·&nbsp;
-            Sonder Project
+            <a
+              href="https://downtownsandiego.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-accent-bright"
+            >
+              Downtown San Diego Partnership
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              href="https://www.wonofuslimited.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-accent-bright"
+            >
+              Won of Us
+            </a>
+            &nbsp;·&nbsp;
+            <a
+              href="https://www.sonderproject.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-accent-bright"
+            >
+              Sonder Project
+            </a>
           </p>
           <p className="mt-6 text-xs text-slate-500">
             © {new Date().getFullYear()} AI for Downtown Business. All rights
