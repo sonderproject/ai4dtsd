@@ -8,13 +8,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Deep navy reserved for headings + the immersive hero
         navy: {
           DEFAULT: "#0a1929",
           deep: "#071320",
-          card: "#0f2438",
         },
-        teal: {
-          accent: "#7dd3fc",
+        // Light theme surfaces
+        surface: {
+          DEFAULT: "#f5f8fc", // page background
+          alt: "#eaf1f8", // alternating band
+          card: "#ffffff", // cards
+        },
+        // Teal accent — deep tone for legibility on light, plus a bright tint
+        accent: {
+          DEFAULT: "#0e7490", // primary accent on light surfaces
+          ink: "#0b5a70",
+          bright: "#7dd3fc", // bright tint used on the dark hero
         },
       },
       fontFamily: {

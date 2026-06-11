@@ -31,15 +31,15 @@ export default function StickyCta() {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep/95 p-3 backdrop-blur transition-transform duration-300 sm:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-4px_20px_rgba(10,25,41,0.08)] backdrop-blur transition-transform duration-300 sm:hidden ${
         show ? "translate-y-0" : "translate-y-full"
       }`}
     >
       <a
         href="#signup"
-        className="block rounded-lg bg-teal-accent px-6 py-3 text-center text-base font-semibold text-navy-deep"
+        className="block rounded-lg bg-accent px-6 py-3 text-center text-base font-bold text-white"
       >
-        Reserve Your Spot
+        Reserve Your Spot — Free
       </a>
     </div>
   );

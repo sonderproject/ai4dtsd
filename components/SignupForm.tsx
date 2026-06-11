@@ -56,10 +56,10 @@ export default function SignupForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-teal-accent/30 bg-navy-card p-8 text-center sm:p-10">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-accent/15">
+      <div className="rounded-2xl border border-accent/30 bg-surface-card p-8 text-center shadow-md sm:p-10">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-accent/10">
           <svg
-            className="h-7 w-7 text-teal-accent"
+            className="h-7 w-7 text-accent"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -71,10 +71,10 @@ export default function SignupForm() {
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="font-heading text-2xl font-semibold text-white">
+        <h3 className="font-heading text-2xl font-semibold text-navy">
           You&apos;re on the list
         </h3>
-        <p className="mt-2 text-base text-slate-300">
+        <p className="mt-2 text-base text-slate-600">
           We&apos;ll email you the date first.
         </p>
       </div>
@@ -82,18 +82,18 @@ export default function SignupForm() {
   }
 
   const inputClasses =
-    "w-full rounded-lg border border-white/10 bg-navy-deep px-4 py-3 text-base text-white placeholder:text-slate-500 outline-none transition focus:border-teal-accent focus:ring-2 focus:ring-teal-accent/30";
+    "w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-navy placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/25";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-white/10 bg-navy-card p-6 sm:p-8"
+      className="rounded-2xl border border-slate-200 bg-surface-card p-6 shadow-md sm:p-8"
       noValidate
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-1">
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-200">
-            Name <span className="text-teal-accent">*</span>
+          <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-navy">
+            Name <span className="text-accent">*</span>
           </label>
           <input
             id="name"
@@ -109,8 +109,8 @@ export default function SignupForm() {
         </div>
 
         <div className="sm:col-span-1">
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-200">
-            Email <span className="text-teal-accent">*</span>
+          <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-navy">
+            Email <span className="text-accent">*</span>
           </label>
           <input
             id="email"
@@ -126,8 +126,8 @@ export default function SignupForm() {
         </div>
 
         <div className="sm:col-span-1">
-          <label htmlFor="businessName" className="mb-1.5 block text-sm font-medium text-slate-200">
-            Business Name <span className="text-teal-accent">*</span>
+          <label htmlFor="businessName" className="mb-1.5 block text-sm font-semibold text-navy">
+            Business Name <span className="text-accent">*</span>
           </label>
           <input
             id="businessName"
@@ -143,8 +143,8 @@ export default function SignupForm() {
         </div>
 
         <div className="sm:col-span-1">
-          <label htmlFor="role" className="mb-1.5 block text-sm font-medium text-slate-200">
-            Role <span className="text-teal-accent">*</span>
+          <label htmlFor="role" className="mb-1.5 block text-sm font-semibold text-navy">
+            Role <span className="text-accent">*</span>
           </label>
           <select
             id="role"
@@ -155,7 +155,7 @@ export default function SignupForm() {
             className={`${inputClasses} appearance-none bg-[length:1.25rem] bg-[right_0.75rem_center] bg-no-repeat pr-10`}
             style={{
               backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%237dd3fc' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E\")",
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230e7490' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E\")",
             }}
           >
             <option value="" disabled>
@@ -170,7 +170,7 @@ export default function SignupForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="timeSink" className="mb-1.5 block text-sm font-medium text-slate-200">
+          <label htmlFor="timeSink" className="mb-1.5 block text-sm font-semibold text-navy">
             What&apos;s the biggest time-sink in your business?
           </label>
           <input
@@ -186,7 +186,7 @@ export default function SignupForm() {
       </div>
 
       {status === "error" && (
-        <p className="mt-4 text-sm text-red-400" role="alert">
+        <p className="mt-4 text-sm text-red-600" role="alert">
           {errorMsg}
         </p>
       )}
@@ -194,12 +194,12 @@ export default function SignupForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 w-full rounded-lg bg-teal-accent px-6 py-3.5 text-base font-semibold text-navy-deep transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-teal-accent focus:ring-offset-2 focus:ring-offset-navy-card disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-6 w-full rounded-lg bg-accent px-6 py-3.5 text-base font-bold text-white transition hover:bg-accent-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface-card disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Reserving…" : "Reserve Your Spot"}
+        {status === "submitting" ? "Reserving…" : "Reserve Your Spot — Free"}
       </button>
 
-      <p className="mt-4 text-center text-xs text-slate-400">
+      <p className="mt-4 text-center text-xs text-slate-500">
         Your info is only used for event updates.
       </p>
     </form>

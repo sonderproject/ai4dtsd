@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AI for Downtown Business — Networking, Innovation & Growth",
   description:
-    "Practical AI for your business — plus the people building it in San Diego. A collaboration between Downtown San Diego Partnership, Won of Us, and Sonder Project.",
+    "A free event for Downtown San Diego business owners. Practical AI, live demos, a vendor showcase, and the people building it in San Diego. Hosted by Downtown San Diego Partnership, Won of Us, and Sonder Project. Seats are limited — reserve your spot.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="font-body bg-navy text-[#e6edf3] antialiased">
+      <body className="font-body bg-surface text-slate-700 antialiased">
         {children}
       </body>
     </html>
