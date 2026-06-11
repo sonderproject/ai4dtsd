@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import ParallaxImage from "@/components/ParallaxImage";
 import SignupForm from "@/components/SignupForm";
 import StickyCta from "@/components/StickyCta";
 import skylineSunset from "@/assets/images/skyline-sunset.jpg";
@@ -177,14 +178,11 @@ export default function Home() {
     <main className="relative overflow-x-hidden">
       {/* ───────────────────────── Hero ───────────────────────── */}
       <section className="relative isolate flex min-h-screen items-center px-6 py-24 sm:py-28">
-        <Image
+        <ParallaxImage
           src={skylineSunset}
           alt="Downtown San Diego skyline at sunset over the harbor"
-          fill
           priority
-          placeholder="blur"
-          sizes="100vw"
-          className="-z-30 object-cover"
+          className="-z-30"
         />
         {/* deep gradient wash for legibility + mood */}
         <div
@@ -514,13 +512,10 @@ export default function Home() {
 
       {/* ─────────────────── Photo CTA band ─────────────────── */}
       <section className="relative isolate px-6 py-24 sm:py-28">
-        <Image
+        <ParallaxImage
           src={skylineBay}
           alt="Downtown San Diego skyline across the bay at dusk"
-          fill
-          placeholder="blur"
-          sizes="100vw"
-          className="-z-30 object-cover"
+          className="-z-30"
         />
         <div
           aria-hidden="true"
